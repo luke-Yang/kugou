@@ -36,15 +36,7 @@ export default {
   mounted(){
     var _this = this;
       this.$nextTick(function(){
-      //   console.log(_this.$store.getters.musicData)
-      //     var audio = document.getElementById("audio");
-      // var timer =  setInterval(function(){
-      //   if(audio.ended){
-      //     _this.$store.dispatch("next")
-      //     clearInterval(timer)
-      //     // alert("播完了")
-      //   }
-      //   },1000)
+    
       })
     },
     methods:{
