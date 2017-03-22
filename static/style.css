@@ -1,0 +1,457 @@
+.top-fixed {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    z-index: 99;
+}
+
+.head-comp,
+.clear-head {
+    height: 3.5rem;
+    background: #2ca2f9;
+    line-height: 3.3rem;
+    position: relative;
+}
+
+.head-comp .logo {
+    display: inline-block;
+    vertical-align: middle;
+    width: 7.286rem;
+    height: 1.67857rem;
+    margin-left: .7143rem;
+    background: url("../src/assets/images/logo.png") no-repeat;
+    background-size: 100%;
+}
+
+.head-comp .download-app-btn {
+    display: inline-block;
+    vertical-align: middle;
+    width: 5.7143rem;
+    height: 1.7143rem;
+    line-height: 1.7143rem;
+    margin-left: .7143rem;
+    border: 1px solid #fff;
+    border-radius: .3571rem;
+    text-align: center;
+    color: #fff;
+    font-size: .8571rem;
+}
+
+.head-comp .search-icon {
+    width: 1.2143rem;
+    height: 1.2143rem;
+    background: url(../src/assets/images/search.png) no-repeat;
+    background-size: 100%;
+    position: absolute;
+    top: 1.15rem;
+    right: .7143rem;
+    cursor: pointer;
+}
+
+.top-nav,
+.clear-nav {
+    width: 100%;
+    background: #fff;
+    height: 3.5rem;
+    line-height: 3.3rem;
+    box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;
+}
+
+.top-nav ul {
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0 .7143rem;
+    display: -webkit-flex;
+    box-sizing: border-box;
+}
+
+.top-nav li {
+    flex: 1;
+    text-align: center;
+}
+
+.top-nav li a.active {
+    border-bottom: .2143rem solid #33a3f5;
+}
+
+.top-nav li a {
+    border-bottom: .2143rem solid #fff;
+    display: block;
+    color: #333;
+    font-size: 1.35rem;
+    box-sizing: border-box;
+}
+
+.banner-comp {
+    margin-top: .3rem;
+}
+
+.banner-comp .slider-link {
+    display: block;
+}
+
+.banner-comp .slider-link img {
+    width: 100%;
+    vertical-align: middle;
+}
+
+.swiper-pagination-bullet {
+    width: .5714rem;
+    height: .5714rem;
+    border-radius: 100%;
+    background: hsla(0, 0%, 100%, .6);
+    box-shadow: 0 1px 1px #f4f4f4;
+}
+
+.id-list-item {
+    width: 100%;
+    height: 4.3rem;
+    position: relative;
+    display: table;
+}
+
+.index-sings-list ul {
+    padding-left: 1rem;
+}
+
+.id-list-item .id-name {
+    width: 100%;
+    padding-right: 2.657rem;
+    display: table-cell;
+    vertical-align: middle;
+    padding-left: .3571rem;
+    cursor: pointer;
+    font-size: 1.15rem;
+    box-sizing: border-box;
+}
+
+.id-down-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    display: inline-block;
+    vertical-align: middle;
+    background: url(../src/assets/images/download_icon_2.png) no-repeat;
+    background-size: 100%;
+}
+
+.id-list-item .id-down-cont {
+    display: table-cell;
+    vertical-align: middle;
+    padding-right: 0.8rem;
+}
+
+.ph-item,
+.gd-item {
+    display: list-item;
+    padding: 1rem 1rem;
+    padding-right: 0;
+}
+
+.ph-item .ph-item-avat,
+.gd-item .ph-item-avat {
+    width: 5.7rem;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.ph-item .ph-item-avat img,
+.gd-item .ph-item-avat img {
+    width: 100%;
+}
+
+.ph-item .ph-item-text {
+    min-height: 5.3751rem;
+    line-height: 5.3751rem;
+    display: inline-block;
+    font-size: 0;
+    color: #333;
+    vertical-align: top;
+    margin-left: 1rem;
+}
+
+.ph-item .ph-item-text span {
+    font-size: 1.27rem;
+}
+
+.ph-r-ico {
+    width: 2rem;
+    background: url(../src/assets/images/arrow_icon.png) no-repeat center/40% auto;
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: 100%;
+}
+
+
+/*歌手分类*/
+
+.gs-typ-item {
+    padding: 0.9rem;
+    display: block;
+    font-size: 1rem;
+    color: #333;
+    border-top: 1px solid #e4e4e4;
+    position: relative;
+}
+
+.gs-typ-item:first-child {
+    border-top: 0;
+}
+
+.gs-typ-item>i {
+    display: block;
+    position: absolute;
+    right: 0.5rem;
+    top: 0;
+    width: 1.5rem;
+    height: 100%;
+    background: url(../src/assets/images/arrow_icon.png) no-repeat center/40% auto;
+}
+
+.gs-item-list {
+    background-color: #fbfbfb;
+    margin-bottom: 1rem;
+    border-radius: 5px;
+    overflow: hidden;
+    border: 1px solid #e4e4e4;
+}
+
+.gs-content {
+    box-sizing: border-box;
+    padding: 1rem 0.7rem;
+}
+
+
+/*底部播放器*/
+
+.bot-player {
+    width: 100%;
+    height: 4.7rem;
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.8);
+    color: #fff;
+    font-size: 0;
+    /*display: none;*/
+}
+
+.bot-player .play-avat {
+    width: 4.1rem;
+    height: 4.1rem;
+    margin: 0.3rem 0 .3rem 0.5rem;
+    display: inline-block;
+    font-size: 0;
+}
+
+.bot-player .song-msg {
+    color: #fff;
+    width: 65%;
+    display: inline-block;
+    font-size: 0;
+}
+
+.bot-player .play-avat img {
+    width: 100%;
+    height: 100%;
+    vertical-align: middle;
+    border-radius: 5px;
+}
+
+.play-msg {
+    display: inline-block;
+    font-size: 0;
+    vertical-align: middle;
+    margin-left: 1rem;
+}
+
+.play-msg .play-til {
+    font-size: .95rem;
+}
+
+.play-msg .play-er {
+    font-size: .9rem;
+    opacity: .5;
+}
+
+.play-control i {
+    display: inline-block;
+}
+
+.play-control {
+    display: inline-block;
+}
+
+.play-control {
+    position: absolute;
+    right: 0.7rem;
+    top: 50%;
+    margin-top: -1rem;
+}
+
+.play-control .song-close {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    background: url(../src/assets/images/close_icon.png) no-repeat center/100% auto;
+}
+
+.play-control .song-next {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    background: url(../src/assets/images/next_icon.png) no-repeat center/100% auto;
+}
+
+.play-control .song-download {
+    width: 2rem;
+    height: 2rem;
+    margin-left: 1rem;
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    background: url(../src/assets/images/download_icon.png) no-repeat center/100% auto;
+}
+
+
+/*歌单*/
+
+.gd-item .ph-item-text .gd-name {
+    font-size: 1.15rem;
+    display: block;
+}
+
+.gd-item .ph-item-text .gd-host {
+    font-size: 0.8rem;
+    display: block;
+    color: #9b9b9b;
+    margin-top: 0.2rem;
+}
+
+.gd-item .ph-item-text {
+    display: inline-block;
+    height: 5.3751rem;
+    vertical-align: middle;
+}
+
+.gd-item .gd-box {
+    display: -webkit-flex;
+    height: 100%;
+    align-items: center;
+    margin-left: 1rem;
+}
+
+.gd-item .gd-box .icon-ej {
+    width: .7143rem;
+    height: .7143rem;
+    margin-right: .2857rem;
+    display: inline-block;
+    background: url(../src/assets/images/icon_music.png) no-repeat;
+    background-size: 100%;
+}
+
+
+/*歌手列表详情*/
+
+.top-bar {
+    height: 3.5rem;
+    padding: 0 2rem;
+    position: relative;
+    background: #fff;
+    box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;
+}
+
+.top-bar .top-bar-title {
+    line-height: 3.5rem;
+    font-size: 1.2rem;
+    text-align: center
+}
+
+.top-bar .top-bar-back {
+    width: .85714rem;
+    height: 100%;
+    background: url(../src/assets/images/goback.png) no-repeat center/100% auto;
+    position: absolute;
+    left: 1rem;
+    top: 0;
+}
+
+.gs-item {
+    padding: 0.7rem 0;
+    margin-left: 0.7rem;
+}
+
+.gs-item .ph-item-text {
+    height: 3.7rem;
+}
+
+.gs-item .ph-item-avat {
+    width: 3.7rem;
+}
+
+
+/*heji*/
+
+.heji-banner {
+    height: 14rem;
+    overflow: hidden;
+}
+
+.heji-banner img {
+    margin-top: -5rem;
+    width: 100%;
+}
+
+.opacted-bar {
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, .6), transparent);
+    color: #fff;
+    box-shadow: 0 0 0 #fff;
+    font-weight: 700;
+}
+
+.change-top-bg {
+    background: #2ca2f9;
+}
+
+.list-js {
+    padding: 0 2.25rem 0 1rem;
+    box-sizing: border-box;
+    box-shadow: 0 0.1785rem 0.1785rem 0 #f4f4f4;
+}
+
+.list-js-text {
+    line-height: 2.5rem;
+    font-size: 1rem;
+}
+
+.list-js-text.hide-text {
+    overflow: hidden;
+    height: 2.5rem;
+}
+
+.show-more {
+    width: 2.1429rem;
+    height: 2rem;
+    line-height: 2.1429rem;
+    position: absolute;
+    top: .25rem;
+    right: .1786rem;
+    text-align: center;
+    cursor: pointer;
+}
+
+.show-more i {
+    width: 1.25rem;
+    height: 1.25rem;
+    display: inline-block;
+    vertical-align: text-bottom;
+    background: url(../src/assets/images/dow_icon.png) no-repeat;
+    background-size: 100%;
+}
