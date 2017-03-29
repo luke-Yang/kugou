@@ -14,7 +14,6 @@ export default new Router({
     },
     {
       path: '/paihang',
-      // name: 'home',
       component: require("../components/paihang.vue")
     },
     {
@@ -28,9 +27,18 @@ export default new Router({
       component: require("../components/geshou.vue")
     },
     {
-      path: '/wangyiyun/:pid',
+      path: '/wangyiyun/:pid/type/:type',
       name: 'wangyiyun',
       component: require("../components/wangyiyun.vue")
+    },
+    // {
+    //   path: '/search',
+    //   component: require("../components/search.vue")
+    // },
+    {
+      path: '/animation',
+      // name: 'wangyiyun',
+      component: require("../components/animation.vue")
     },
     {
       path: '/Hello',

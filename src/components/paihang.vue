@@ -2,7 +2,7 @@
   <div class="ph-items-list">
             <ul>
                 <li class="ph-item border1px-bottom" v-for="ph in phList">
-                  <router-link :to="{ name: 'wangyiyun', params: { pid: ph.pid }}" class="dp_block pr">
+                  <router-link :to="{ name: 'wangyiyun', params: { pid: ph.pid,type:'ph' }}" class="dp_block pr">
                     	<div class="ph-item-avat"><img :src="ph.imgUrl" alt=""></div>
                     	<p class="ph-item-text"><span>{{ph.phName}}</span></p>
                     	<div class="ph-r-ico"></div>
@@ -24,12 +24,13 @@ export default {
     var _this = this;
     this.$nextTick(function(){
       _this.showList();
+      _this.$store.commit("isNavShowTrue");
     })
   },
   methods:{
     showList(){
 				// this.$store.commit('showLoading')
-				var _this=this
+				var _this=this;
 				var oDiv=$("<div></div>");
 				var phList=[];
 				$.ajax({
@@ -47,8 +48,6 @@ export default {
 
 						})
 						_this.phList=phList;
-            console.log(phList)
-						// _this.$store.commit('hideLoading')
 					}
 				})
 			}
@@ -56,6 +55,6 @@ export default {
 }
 </script>
 
-<style lang="css">
+<style lang="css" >
 
 </style>

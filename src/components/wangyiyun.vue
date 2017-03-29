@@ -16,7 +16,7 @@
 				<div class="show-more"><i></i></div>
 			</div>
 			<ul>
-				<li class="id-list-item border1px-bottom" v-for="item in songList">
+				<li class="id-list-item border1px-bottom" v-for="(item,index) in songList" @click="playMusic(item,index)">
 					<a href="javascript:;" class="id-name">{{item.filename}}</a>
 					<div class="id-down-cont">
 						<a href="javascript:;" class="id-down-icon"></a>
@@ -34,13 +34,15 @@ export default {
     return{
       wangyiMusicList:[],
       songList:[],
-      banImg:""
+      banImg:"",
+      api_router:""
     }
   },
   mounted:function(){
     var _this = this;
     this.$nextTick(function(){
-      _this.showList()
+      _this.showList();
+      _this.$store.commit("isNavShowFalse");
     })
   },
   methods:{
@@ -48,9 +50,16 @@ export default {
 				var _this=this
 				var oDiv=$("<div></div>");
 				var songList=[];
+        var router = _this.$route.params;
+      console.log(router,"router")
+				if(router.type=="ph"){
+				    _this.api_router = "/rank/info/";
+        }else {
+				    _this.api_router = "/plist/list/";
+        }
 				$.ajax({
 					type:'get',
-					url:apiPath.delegateUrl+apiPath.kugouRootPath+"/rank/info/"+_this.$route.params.pid,
+					url:apiPath.delegateUrl+apiPath.kugouRootPath+_this.api_router+_this.$route.params.pid,
 					success:function(data){
 						oDiv.html(data);
 						oDiv.find(".panel-songslist-item").each(function(ind,ele){
@@ -89,15 +98,18 @@ export default {
       // })
     },
     playMusic(item,index){
-      this.$store.dispatch('showPlayer');
-      this.$store.dispatch("isPlayTrue")
-      this.$store.commit("getMusicData",{item,index});
-      this.$store.commit("getSongList",this.wangyiMusicList)
-    }
+      var hash=item.hash;
+      this.$store.dispatch('showPlayer',{data:"data,hh"});
+      this.$store.dispatch("isPlayTrue");
+      this.$store.dispatch("getSongData",{hash,index});
+      this.$store.commit("getSongList",this.songList)
+    },
   }
 }
 </script>
 
 <style lang="css">
-
+.heji-warp{
+position: relative !important;
+}
 </style>

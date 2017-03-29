@@ -5,10 +5,11 @@
   <div class="head-comp">
     <a href="javascript:;" class="logo"></a>
     <a href="javascript:;" class="download-app-btn">下载酷狗</a>
-    <a href="javascript:;" class="search-icon"></a>
+    <!--<a href="javascript:;" class=""></a>-->
+    <router-link to="/search" class="search-icon"></router-link>
   </div>
   <!-- nav -->
-  <div class="top-nav">
+  <div class="top-nav" v-if="$store.getters.isNavShow">
     <ul>
       <li>
         <router-link to="/home" class="">新歌</router-link>
@@ -19,17 +20,15 @@
       </li>
       <li>
         <router-link to="/gedan" class="">歌单</router-link>
-
       </li>
-      <li>
-        <router-link to="/geshou" class="">歌手</router-link>
-        <!-- <a href="javascript:;">歌手</a> -->
-      </li>
+      <!--<li>-->
+        <!--<router-link to="/geshou" class="">歌手</router-link>-->
+      <!--</li>-->
     </ul>
   </div>
   <router-view></router-view>
   <player v-if='$store.getters.playerState'></player>
-  <propstest :message="data" v-on:increment="incrementTotal"></propstest>
+  <!-- <propstest :message="data" v-on:increment="incrementTotal"></propstest> -->
   <p>{{fromChild}}</p>
 </div>
 </template>
@@ -42,19 +41,6 @@ export default {
   data() {
     return {
       showPlayer: this.$store.getters.playerState,
-      data: [{
-          label: "你好1"
-        },
-        {
-          label: "你好2"
-        },
-        {
-          label: "你好3"
-        },
-        {
-          label: "你好4"
-        },
-      ],
       fromChild:0
     }
   },
@@ -67,14 +53,12 @@ export default {
       this.fromChild++;
     }
   }
-
 }
 </script>
 
 <style>
 @import "../static/reset.css";
 @import "../static/style.css";
-@import "../static/swiper.css";
 .index-sings-list,
 .ph-items-list,
 .gs-content {

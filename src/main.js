@@ -4,12 +4,10 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import store from './store/store'
-// import "../static/jquery-3.1.1.min"
-
+import VueAwesomeSwiper from 'vue-awesome-swiper'
 import './assets/js/fontSize.js'
-// import './assets/js/swiper'
 import './assets/js/jquery.js'
-
+Vue.use(VueAwesomeSwiper);
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */

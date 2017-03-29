@@ -245,6 +245,7 @@
     background: rgba(0, 0, 0, 0.9);
     color: #fff;
     font-size: 0;
+    z-index: 999;
     /*display: none;*/
 }
 
