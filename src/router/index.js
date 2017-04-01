@@ -9,16 +9,16 @@ export default new Router({
     },
     {
       path: '/home',
-      // name: 'home',
+      name: 'home',
       component: require("../components/home.vue")
     },
     {
       path: '/paihang',
+      name: 'paihang',
       component: require("../components/paihang.vue")
     },
     {
       path: '/gedan',
-      // name: 'home',
       component: require("../components/gedan.vue")
     },
     {
@@ -31,10 +31,10 @@ export default new Router({
       name: 'wangyiyun',
       component: require("../components/wangyiyun.vue")
     },
-    // {
-    //   path: '/search',
-    //   component: require("../components/search.vue")
-    // },
+    {
+      path: '/search',
+      component: require("../components/search.vue")
+    },
     {
       path: '/animation',
       // name: 'wangyiyun',
@@ -44,7 +44,13 @@ export default new Router({
       path: '/Hello',
       name: 'Hello',
       component: Hello
-    }
+    },
+    {
+      path: '*',
+      name: '404',
+      component: require("../components/404.vue")
+    },
+
   ],
   linkActiveClass: "active",
   scrollBehavior: () => ({

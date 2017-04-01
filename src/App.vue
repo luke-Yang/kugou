@@ -26,10 +26,13 @@
       <!--</li>-->
     </ul>
   </div>
-  <router-view></router-view>
+  <transition  :name="transitionName">
+        <router-view></router-view>
+  </transition>
+
   <player v-if='$store.getters.playerState'></player>
   <!-- <propstest :message="data" v-on:increment="incrementTotal"></propstest> -->
-  <p>{{fromChild}}</p>
+  <!--<p>{{fromChild}}</p>-->
 </div>
 </template>
 
@@ -41,7 +44,8 @@ export default {
   data() {
     return {
       showPlayer: this.$store.getters.playerState,
-      fromChild:0
+      fromChild:0,
+      transitionName:""
     }
   },
   components: {
@@ -51,6 +55,22 @@ export default {
   methods:{
     incrementTotal(){
       this.fromChild++;
+    }
+  },
+  watch: {
+    '$route' (to, from) {
+      console.log(to)
+      var _this = this;
+     switch (to.path) {
+       case "/home":
+         _this.transitionName = "slide-right"
+         break;
+       case "/paihang":
+           _this.transitionName = "slide-left"
+           break;
+       default:
+          _this.transitionName = "slide-right"
+     }
     }
   }
 }
@@ -93,7 +113,28 @@ export default {
   width: 100%;
   z-index: 11;
 }
-
+.slide-right-enter-active{
+  transition: all 1s ease-in;
+  -webkit-transition:all 1s ease-in;
+}
+.slide-right-enter,.slide-right-leave-active{
+  transform: translateX(-100%);
+    -webkit-transform: translateX(-100%);
+}
+.slide-right-leave-active{
+  transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  -webkit-transition: all 0.5s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+  opacity: 0
+}
+/*.slide-right-leave{
+  transform: translateX(100%);
+}*/
+.slide-left-enter-active{
+  transition: transform 0.5s ease-in;
+}
+.slide-left-enter{
+  transform: translateX(100%);
+}
 
 /*#app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
@@ -103,4 +144,5 @@ export default {
   color: #2c3e50;
   margin-top: 60px;
 }*/
+
 </style>

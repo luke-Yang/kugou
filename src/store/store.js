@@ -8,21 +8,21 @@ const state = {
   showPlayer: false,
   isPlay: false,
   musicData: {
-    currentAudio:{},
+    currentAudio: {},
     currentIndex: null
   },
   songList: [],
-  isNavShow:true
+  isNavShow: true
 }
 const mutations = {
   showPlayer(state, data) {
     console.log(data)
     state.showPlayer = true
   },
-  isNavShowTrue(state){
+  isNavShowTrue(state) {
     state.isNavShow = true;
   },
-  isNavShowFalse(state){
+  isNavShowFalse(state) {
     state.isNavShow = false;
   },
   isPlayTrue(state) {
@@ -40,7 +40,7 @@ const mutations = {
     state.musicData.currentSrc = musicData.item.src;
     state.musicData.currentIndex = musicData.index;
   },
-  playSong(state,data){
+  playSong(state, data) {
     console.log(data);
     state.musicData.currentAudio = data.audio;
     state.musicData.currentIndex = data.index;
@@ -65,14 +65,18 @@ const actions = {
   }) {
     commit("next")
   },
-  getSongData({ commit }, data) {
+  getSongData({
+    commit
+  }, data) {
     var hash = data.hash,
       index = data.index
     $.ajax({
       type: "get",
       // url: apiPath.delegateUrl + apiPath.apiSongs,
       url: "https://bird.ioliu.cn/v1/?url=http://m.kugou.com/app/i/getSongInfo.php?cmd=playInfo",
-      data: { hash: data.hash },
+      data: {
+        hash: data.hash
+      },
       success(data) {
         // commit('showPlayer')
         var imgUrl = data.imgUrl.split('{size}').join('100'),
@@ -88,19 +92,29 @@ const actions = {
         audio.songLength = songLength;
         audio.singer = singer;
         audio.currentLength = currentLength;
-        commit('playSong', { audio, index })
+        commit('playSong', {
+          audio,
+          index
+        })
       }
     })
   },
-  next({ dispatch , state }) {
-    if(state.mutations.musicData.currentIndex==state.mutations.songList.length-1){
+  next({
+    dispatch,
+    state
+  }) {
+    if (state.mutations.musicData.currentIndex == state.mutations.songList.length - 1) {
       state.mutations.musicData.currentIndex = 0;
-    }else {
+    } else {
       state.mutations.musicData.currentIndex++;
     }
     var hash = state.mutations.songList[state.mutations.musicData.currentIndex].hash;
     var index = state.mutations.musicData.currentIndex;
-    dispatch("getSongData",{hash,index})
+    dispatch("getSongData", {
+      hash,
+      index
+    })
+    dispatch("isPlayTrue")
   }
 }
 const getters = {
@@ -113,7 +127,7 @@ const getters = {
   musicData(state) {
     return state.musicData
   },
-  isNavShow(state){
+  isNavShow(state) {
     return state.isNavShow
   }
 }
